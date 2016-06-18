@@ -136,7 +136,7 @@ def get_output(node):
         weighted_sum = node.B
         for arc in node.incoming:
             weighted_sum += get_output(arc.parent) * arc.W
-        node.Y = node.activation(weighted_sum)
+        node.Y = nnet.sigmoid(weighted_sum)
         return node.Y
 
 
@@ -158,7 +158,7 @@ if __name__ == "__main__":
 
     layer1 = [Node() for i in range(2)]
     layer2 = [Node() for i in range(3)]
-    layer3 = [Node() for i in range(2)]
+    layer3 = [Node() for i in range(1)]
 
     for p in layer1:
         for c in layer2:
